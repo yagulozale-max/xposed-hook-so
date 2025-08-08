@@ -1,0 +1,2 @@
+ninja: Entering directory `F:\xposedinlinehook\XposedInlineHook\app\.cxx\Debug\3l402b38\arm64-v8a'
+ninja: no work to do.

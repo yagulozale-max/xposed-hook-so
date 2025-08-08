@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.your.crack.module" // 您可以自定义一个包名
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        ndk{
+            // ↓↓↓ 这是最关键的修改 ↓↓↓
+            // 我们同时为32位和64位架构编译so文件，确保全兼容
+            abiFilters "armeabi-v7a", "arm64-v8a"
+        }
+    }
+
+    namespace 'com.wizd.xposedinlinehook'
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path file('src/main/cpp/CMakeLists.txt')
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // 告诉打包工具so文件的存放位置
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+dependencies {
+    // 确保您项目中这个文件的路径是正确的
+    compileOnly files('lib/XposedBridgeApi-54.jar')
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+}
