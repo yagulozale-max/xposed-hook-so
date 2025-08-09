@@ -1,0 +1,10 @@
+com.wizd.xposedinlinehook.app-appcompat-1.0.0-0 C:\Users\Administrator\.gradle\caches\transforms-3\2638b4bd5271d773cbcb8a000aa0380d\transformed\appcompat-1.0.0\res
+com.wizd.xposedinlinehook.app-core-1.0.0-1 C:\Users\Administrator\.gradle\caches\transforms-3\b7c5f6f67ecaca257a9fdc7bb5c77f18\transformed\core-1.0.0\res
+com.wizd.xposedinlinehook.app-coordinatorlayout-1.0.0-2 C:\Users\Administrator\.gradle\caches\transforms-3\f6ef0c390a987f88d7bdf1337a2b6d67\transformed\coordinatorlayout-1.0.0\res
+com.wizd.xposedinlinehook.app-pngs-3 F:\xposedinlinehook\XposedInlineHook\app\build\generated\res\pngs\release
+com.wizd.xposedinlinehook.app-resValues-4 F:\xposedinlinehook\XposedInlineHook\app\build\generated\res\resValues\release
+com.wizd.xposedinlinehook.app-packageReleaseResources-5 F:\xposedinlinehook\XposedInlineHook\app\build\intermediates\incremental\release\packageReleaseResources\merged.dir
+com.wizd.xposedinlinehook.app-packageReleaseResources-6 F:\xposedinlinehook\XposedInlineHook\app\build\intermediates\incremental\release\packageReleaseResources\stripped.dir
+com.wizd.xposedinlinehook.app-release-7 F:\xposedinlinehook\XposedInlineHook\app\build\intermediates\merged_res\release\mergeReleaseResources
+com.wizd.xposedinlinehook.app-main-8 F:\xposedinlinehook\XposedInlineHook\app\src\main\res
+com.wizd.xposedinlinehook.app-release-9 F:\xposedinlinehook\XposedInlineHook\app\src\release\res

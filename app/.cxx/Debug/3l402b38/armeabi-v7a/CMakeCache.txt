@@ -249,7 +249,10 @@ Project_IS_TOP_LEVEL:STATIC=ON
 Project_SOURCE_DIR:STATIC=F:/xposedinlinehook/XposedInlineHook/app/src/main/cpp
 
 //Dependencies for the target
-crack_LIB_DEPENDS:STATIC=general;F:/AndroidSdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/arm-linux-androideabi/19/liblog.so;
+crack_LIB_DEPENDS:STATIC=general;F:/AndroidSdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/arm-linux-androideabi/19/liblog.so;general;F:/AndroidSdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/arm-linux-androideabi/19/libdl.so;
+
+//Path to a library.
+dl-lib:FILEPATH=F:/AndroidSdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/arm-linux-androideabi/19/libdl.so
 
 //Path to a library.
 log-lib:FILEPATH=F:/AndroidSdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/arm-linux-androideabi/19/liblog.so

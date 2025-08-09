@@ -1,0 +1,19 @@
+<lint-module
+    format="1"
+    dir="F:\xposedinlinehook\XposedInlineHook\app"
+    name=":app"
+    type="APP"
+    maven="XposedInlineHook:app:"
+    agpVersion="8.3.0"
+    buildFolder="build"
+    bootClassPath="F:\AndroidSdk\platforms\android-28\android.jar;F:\AndroidSdk\build-tools\34.0.0\core-lambda-stubs.jar"
+    javaSourceLevel="1.8"
+    compileTarget="android-28"
+    neverShrinking="true">
+  <lintOptions
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true"/>
+  <variant name="release"/>
+</lint-module>

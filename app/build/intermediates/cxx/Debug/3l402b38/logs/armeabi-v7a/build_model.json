@@ -25,8 +25,7 @@
     "variantName": "debug",
     "isDebuggableEnabled": true,
     "validAbiList": [
-      "armeabi-v7a",
-      "arm64-v8a"
+      "armeabi-v7a"
     ],
     "buildTargetSet": [],
     "implicitBuildTargetSet": [],
@@ -138,6 +137,7 @@
         "rootBuildGradleFolder": "F:\\xposedinlinehook\\XposedInlineHook",
         "sdkFolder": "F:\\AndroidSdk",
         "isBuildOnlyTargetAbiEnabled": true,
+        "ideBuildTargetAbi": "arm64-v8a,armeabi-v7a,armeabi",
         "isCmakeBuildCohabitationEnabled": false,
         "isPrefabEnabled": false
       },

@@ -1,0 +1,27 @@
+{
+  "buildFiles": [
+    "F:\\xposedinlinehook\\XposedInlineHook\\app\\src\\main\\cpp\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "F:\\AndroidSdk\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "F:\\xposedinlinehook\\XposedInlineHook\\app\\.cxx\\RelWithDebInfo\\d2kp6v2q\\arm64-v8a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "F:\\AndroidSdk\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "F:\\xposedinlinehook\\XposedInlineHook\\app\\.cxx\\RelWithDebInfo\\d2kp6v2q\\arm64-v8a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "crack::@6890427a1f51a3e7e1df": {
+      "artifactName": "crack",
+      "abi": "arm64-v8a",
+      "output": "F:\\xposedinlinehook\\XposedInlineHook\\app\\build\\intermediates\\cxx\\RelWithDebInfo\\d2kp6v2q\\obj\\arm64-v8a\\libcrack.so",
+      "runtimeFiles": []
+    }
+  }
+}

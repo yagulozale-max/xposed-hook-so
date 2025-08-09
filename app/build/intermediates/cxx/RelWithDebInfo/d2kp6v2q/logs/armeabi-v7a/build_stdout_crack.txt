@@ -1,0 +1,35 @@
+ninja: Entering directory `F:\xposedinlinehook\XposedInlineHook\app\.cxx\RelWithDebInfo\d2kp6v2q\armeabi-v7a'
+[1/4] Building C object CMakeFiles/crack.dir/relocate.c.o
+F:/xposedinlinehook/XposedInlineHook/app/src/main/cpp/relocate.c:239:25: warning: operator '<<' has lower precedence than '+'; '+' will be evaluated first [-Wshift-op-parentheses]
+                        value = ALIGN_PC(pc) + (instruction & 0xFF) << 2;
+                                ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~ ~~
+F:/xposedinlinehook/XposedInlineHook/app/src/main/cpp/relocate.c:239:25: note: place parentheses around the '+' expression to silence this warning
+                        value = ALIGN_PC(pc) + (instruction & 0xFF) << 2;
+                                ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+F:/xposedinlinehook/XposedInlineHook/app/src/main/cpp/relocate.c:610:18: warning: & has lower precedence than ==; == will be evaluated first [-Wparentheses]
+        if (target_addr & 1 == 1) {
+                        ^~~~~~~~
+F:/xposedinlinehook/XposedInlineHook/app/src/main/cpp/relocate.c:610:18: note: place parentheses around the '==' expression to silence this warning
+        if (target_addr & 1 == 1) {
+                        ^
+                          (     )
+F:/xposedinlinehook/XposedInlineHook/app/src/main/cpp/relocate.c:610:18: note: place parentheses around the & expression to evaluate it first
+        if (target_addr & 1 == 1) {
+                        ^
+            (              )
+2 warnings generated.
+[2/4] Building C object CMakeFiles/crack.dir/inlineHook.c.o
+F:/xposedinlinehook/XposedInlineHook/app/src/main/cpp/inlineHook.c:61:37: warning: format specifies type 'unsigned long *' but the argument has type 'uintptr_t *' (aka 'unsigned int *') [-Wformat]
+            sscanf(line, "%lx-%lx", &start, &end);
+                          ~~~       ^~~~~~
+                          %x
+F:/xposedinlinehook/XposedInlineHook/app/src/main/cpp/inlineHook.c:61:45: warning: format specifies type 'unsigned long *' but the argument has type 'uintptr_t *' (aka 'unsigned int *') [-Wformat]
+            sscanf(line, "%lx-%lx", &start, &end);
+                              ~~~           ^~~~
+                              %x
+F:/xposedinlinehook/XposedInlineHook/app/src/main/cpp/inlineHook.c:145:44: warning: unsequenced modification and access to 'i' [-Wunsequenced]
+            doInlineUnHook(&info.item[i], i--);
+                                      ~    ^
+3 warnings generated.
+[3/4] Building CXX object CMakeFiles/crack.dir/native-lib.cpp.o
+[4/4] Linking CXX shared library F:\xposedinlinehook\XposedInlineHook\app\build\intermediates\cxx\RelWithDebInfo\d2kp6v2q\obj\armeabi-v7a\libcrack.so

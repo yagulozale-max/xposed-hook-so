@@ -1,5 +1,9 @@
 # ninja log v5
-1	223	7763726307839164	CMakeFiles/crack.dir/relocate.c.o	c422944e06258a24
-45	305	7763726308698648	CMakeFiles/crack.dir/inlineHook.c.o	b271819e7e455037
-4	1231	7763753535553069	CMakeFiles/crack.dir/native-lib.cpp.o	9e48cfe72dd3d9d4
-1262	3191	7763753554676416	F:/xposedinlinehook/XposedInlineHook/app/build/intermediates/cxx/Debug/3l402b38/obj/armeabi-v7a/libcrack.so	13a87018dfc3d280
+1	1034	7764224506204925	CMakeFiles/crack.dir/relocate.c.o	c422944e06258a24
+73	2235	7764224517853069	CMakeFiles/crack.dir/inlineHook.c.o	b271819e7e455037
+5	1278	7764312672604639	CMakeFiles/crack.dir/native-lib.cpp.o	9e48cfe72dd3d9d4
+1278	1573	7764312675579402	F:/xposedinlinehook/XposedInlineHook/app/build/intermediates/cxx/Debug/3l402b38/obj/armeabi-v7a/libcrack.so	13a87018dfc3d280
+58	3587	7764379618546751	CMakeFiles/crack.dir/inlineHook.c.o	6d23d783bdf1b9ee
+68	3619	7764379618946737	CMakeFiles/crack.dir/relocate.c.o	9d679d05e70a033d
+4	1958	7764387145690712	CMakeFiles/crack.dir/native-lib.cpp.o	5aa6be69bdf0f777
+1959	3808	7764387164391341	F:/xposedinlinehook/XposedInlineHook/app/build/intermediates/cxx/Debug/3l402b38/obj/armeabi-v7a/libcrack.so	2faac4a3533fc9d0

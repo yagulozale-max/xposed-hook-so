@@ -4,7 +4,7 @@
     "type": "COMPATIBLE_SCREEN_MANIFEST",
     "kind": "Directory"
   },
-  "applicationId": "com.your.crack.module",
+  "applicationId": "com.wizd.xposedinlinehook",
   "variantName": "debug",
   "elements": []
 }

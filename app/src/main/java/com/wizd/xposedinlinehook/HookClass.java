@@ -1,11 +1,5 @@
 package com.wizd.xposedinlinehook;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.pm.ApplicationInfo;
-import android.os.Bundle;
-import android.util.Log;
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodHook;
 import de.robv.android.xposed.XposedBridge;
@@ -14,67 +8,50 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage;
 
 public class HookClass implements IXposedHookLoadPackage {
 
-    private static final String TAG = "XposedCrack";
-    private static final String TARGET_GAME_PACKAGE_NAME = "com.netease.x19";
-    private static final String TARGET_MODULE_PACKAGE_NAME = "helper.creeperbox";
-    private static boolean hasHooked = false;
+    private static final String TAG = "XposedFinalCrack_Java";
+    private static final String TARGET_PACKAGE_NAME = "com.netease.x19";
 
-    // JNI函数，它会执行最终的so hook，并返回一个布尔值表示是否成功
-    public static native boolean applyCrack(String targetSoPath);
+    // 声明一个本地方法，用于启动原生层的监控
+    public static native void initiateNativeHook();
 
     @Override
     public void handleLoadPackage(XC_LoadPackage.LoadPackageParam lpparam) throws Throwable {
-        if (!lpparam.packageName.equals(TARGET_GAME_PACKAGE_NAME)) {
+        // 仅对目标游戏进程生效
+        if (!lpparam.packageName.equals(TARGET_PACKAGE_NAME)) {
             return;
         }
 
-        // 在最早的时机注入
-        XposedHelpers.findAndHookMethod("android.app.Application", lpparam.classLoader, "attach", Context.class, new XC_MethodHook() {
-            @Override
-            protected void afterHookedMethod(final MethodHookParam param) throws Throwable {
-                if (hasHooked) return;
-                hasHooked = true;
+        XposedBridge.log(TAG + ": v15.0 原生守望者 - 已进入目标游戏进程: " + lpparam.processName);
 
-                final Context appContext = (Context) param.args[0];
+        // Hook Application的onCreate方法，这是一个可靠的早期执行点
+        XposedHelpers.findAndHookMethod(
+                "android.app.Application",
+                lpparam.classLoader,
+                "onCreate",
+                new XC_MethodHook() {
+                    @Override
+                    protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+                        super.afterHookedMethod(param);
+                        XposedBridge.log(TAG + ": Application.onCreate() hooked. Process: " + lpparam.processName);
 
-                try {
-                    // 1. 准备好【助手模块】的ClassLoader
-                    ApplicationInfo targetModuleInfo = appContext.getPackageManager().getApplicationInfo(TARGET_MODULE_PACKAGE_NAME, 0);
-                    final String targetModuleApkPath = targetModuleInfo.sourceDir;
-                    final ClassLoader targetClassLoader = new PathClassLoader(targetModuleApkPath, appContext.getClassLoader());
+                        // 确保只在主进程中加载和初始化一次
+                        if (lpparam.processName.equals(TARGET_PACKAGE_NAME)) {
+                            try {
+                                XposedBridge.log(TAG + ": 准备加载原生库 libcrack.so...");
+                                System.loadLibrary("crack");
+                                XposedBridge.log(TAG + ": 原生库 libcrack.so 加载成功.");
 
-                    // 2. 加载我们自己的so，做好潜伏准备
-                    System.loadLibrary("crack");
-                    Log.i(TAG, "破解模块so已潜伏。");
+                                XposedBridge.log(TAG + ": 准备调用 native 方法 initiateNativeHook() 启动监控线程...");
+                                initiateNativeHook();
+                                XposedBridge.log(TAG + ": native 方法 initiateNativeHook() 调用完毕.");
 
-                    // 3. 锁定“登录”按钮的点击事件
-                    XposedHelpers.findAndHookMethod(
-                            "helper.creeperbox.v", // 目标类
-                            targetClassLoader,
-                            "onClick",             // 目标方法
-                            DialogInterface.class, int.class,
-                            new XC_MethodHook() {
-                                @Override
-                                protected void beforeHookedMethod(MethodHookParam hookParam) throws Throwable {
-                                    Log.i(TAG, "登录按钮被点击，准备执行致命一击！");
-
-                                    // 4. 致命一击：在点击的瞬间，才执行so hook
-                                    // 我们需要找到目标so的真实路径
-                                    String targetSoPath = targetModuleApkPath.replace("base.apk", "lib/arm64/libcreeperbox.so"); // 这是一个合理的猜测
-                                    boolean crackSuccess = applyCrack(targetSoPath);
-
-                                    if (!crackSuccess) {
-                                        Log.e(TAG, "致命一击失败！so hook未能成功应用。");
-                                    }
-                                    // 无论成功与否，都让原始的onClick继续执行。
-                                    // 如果成功，它将调用被我们篡改的so；如果失败，它将执行原始逻辑。
-                                }
+                            } catch (Throwable t) {
+                                XposedBridge.log(TAG + ": 加载或初始化原生库时发生严重错误.");
+                                XposedBridge.log(t);
                             }
-                    );
-                } catch (Exception e) {
-                    Log.e(TAG, "破解模块准备阶段失败: " + e.toString());
+                        }
+                    }
                 }
-            }
-        });
+        );
     }
 }

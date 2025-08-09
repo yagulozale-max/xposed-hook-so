@@ -4,7 +4,7 @@
     "type": "MERGED_MANIFESTS",
     "kind": "Directory"
   },
-  "applicationId": "com.your.crack.module",
+  "applicationId": "com.wizd.xposedinlinehook",
   "variantName": "debug",
   "elements": [
     {
